@@ -1,26 +1,336 @@
 import Link from "next/link";
-import { ArrowRight, ArrowUpRight, Check, Play, Sparkles, Layers3, Zap, ShieldCheck } from "lucide-react";
+import {
+  ArrowRight,
+  ArrowUpRight,
+  Sparkles,
+  Layers3,
+  Zap,
+  ShieldCheck,
+  Play,
+  CheckCircle2,
+} from "lucide-react";
 import { services } from "@/data/services";
 
 const projects = [
-{n:"01",type:"VIDEO EDITING",title:"Motion, with intention",desc:"Short-form edit concept for a creator brand.",tone:"from-violet-500/30 via-indigo-500/10 to-transparent"},
-{n:"02",type:"WEB EXPERIENCE",title:"A sharper digital home",desc:"Responsive website concept for a modern business.",tone:"from-sky-500/30 via-cyan-500/10 to-transparent"},
-{n:"03",type:"BRAND SYSTEM",title:"Built to be remembered",desc:"Visual identity concept and social creative direction.",tone:"from-fuchsia-500/25 via-purple-500/10 to-transparent"}
+  {
+    n: "01",
+    type: "VIDEO & MOTION",
+    title: "Motion that tells a story.",
+    desc: "Cinematic edits and short-form content designed to capture attention.",
+    tone: "project-violet",
+  },
+  {
+    n: "02",
+    type: "WEB EXPERIENCES",
+    title: "Digital, reimagined.",
+    desc: "Modern, responsive website concepts built around your brand.",
+    tone: "project-blue",
+  },
+  {
+    n: "03",
+    type: "BRAND DESIGN",
+    title: "Make your mark.",
+    desc: "Distinctive visual identities for ambitious creators and businesses.",
+    tone: "project-pink",
+  },
 ];
-const benefits = [{icon:Sparkles,title:"Craft over clutter",desc:"Every design decision has a purpose: clear, useful and considered."},{icon:Layers3,title:"One creative partner",desc:"Bring editing, design and digital execution together in one workflow."},{icon:Zap,title:"Built for momentum",desc:"Transparent scopes and practical communication keep work moving."},{icon:ShieldCheck,title:"Clear expectations",desc:"Agree on deliverables, timeline and price before work begins."}];
-export default function Home(){
-return <main>
-<section className="relative overflow-hidden pb-24 pt-20 sm:pt-28"><div className="glow left-[15%] top-0 bg-violet-600"/><div className="glow right-[10%] top-20 bg-sky-500"/>
-<div className="container relative"><div className="mx-auto max-w-4xl text-center"><div className="eyebrow mb-7 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[.035] px-4 py-2"><span className="h-2 w-2 rounded-full bg-sky-400"/> Independent digital creative studio</div>
-<h1 className="text-5xl font-bold leading-[.98] tracking-[-.065em] sm:text-7xl lg:text-[88px]">Transform Ideas Into <span className="gradient-text">Digital Experiences.</span></h1>
-<p className="mx-auto mt-7 max-w-2xl text-base leading-7 text-zinc-400 sm:text-lg">We help businesses, creators, and brands grow with professional digital services, creative design, and innovative technology.</p>
-<div className="mt-9 flex flex-wrap justify-center gap-3"><Link href="/portfolio/" className="btn btn-primary">Explore Our Work <ArrowUpRight size={16}/></Link><Link href="/contact/" className="btn btn-secondary">Start a Project <ArrowRight size={16}/></Link></div>
-<div className="mt-16 rounded-[28px] border border-white/10 bg-gradient-to-br from-white/[.07] to-white/[.015] p-3 shadow-2xl shadow-violet-950/20"><div className="relative flex min-h-[250px] flex-col justify-between overflow-hidden rounded-[20px] border border-white/10 bg-[#0c0d14] p-6 text-left sm:min-h-[330px] sm:p-10"><div className="absolute -right-10 -top-28 h-80 w-80 rounded-full border border-violet-300/20"/><div className="absolute -right-2 -top-20 h-64 w-64 rounded-full border border-sky-300/20"/><div className="absolute right-16 top-12 h-36 w-36 rounded-full bg-gradient-to-br from-violet-500/50 to-sky-400/40 blur-3xl"/><div className="relative flex items-center justify-between"><span className="eyebrow">Creative systems / 001</span><span className="text-xs text-zinc-500">DESIGN · BUILD · GROW</span></div><div className="relative mt-14"><p className="text-sm text-zinc-400">Ideas deserve more than ordinary.</p><p className="mt-2 text-4xl font-semibold tracking-[-.05em] sm:text-6xl">Make your next move <span className="gradient-text">matter.</span></p></div><div className="relative mt-10 flex items-end justify-between"><span className="text-xs tracking-[.2em] text-zinc-500">NEXORA CREATIVE</span><span className="grid h-12 w-12 place-items-center rounded-full border border-white/15 bg-white/5"><Play size={16}/></span></div></div></div>
-<div className="mt-8 flex flex-wrap justify-center gap-x-8 gap-y-3 text-xs font-semibold tracking-[.13em] text-zinc-500"><span>VIDEO & MOTION</span><span>WEB EXPERIENCES</span><span>BRAND DESIGN</span><span>DIGITAL GROWTH</span></div></div></div></section>
-<section id="services" className="section border-t border-white/[.06]"><div className="container"><div className="mb-10 flex flex-col justify-between gap-5 sm:flex-row sm:items-end"><div><p className="eyebrow mb-4">What we do</p><h2 className="section-title max-w-xl">Creative services, <span className="gradient-text">built around you.</span></h2></div><Link href="/services/" className="btn btn-secondary self-start">Explore all services <ArrowRight size={15}/></Link></div><div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">{services.slice(0,6).map((s,i)=><Link href={`/services/${s.slug}/`} key={s.slug} className="card group p-6 transition hover:-translate-y-1 hover:border-violet-400/40"><div className="mb-8 flex items-center justify-between"><span className="text-xs text-zinc-600">0{i+1} / {s.category.toUpperCase()}</span><ArrowUpRight size={18} className="text-zinc-500 transition group-hover:text-violet-300"/></div><h3 className="text-xl font-semibold">{s.name}</h3><p className="mt-3 min-h-[48px] text-sm leading-6 text-zinc-400">{s.description}</p><div className="mt-6 flex items-center justify-between border-t border-white/10 pt-4 text-sm"><span className="text-zinc-500">Starting at</span><strong>{s.price}</strong></div></Link>)}</div></div></section>
-<section id="work" className="section bg-white/[.018]"><div className="container"><p className="eyebrow mb-4">Selected concepts</p><h2 className="section-title max-w-2xl">Good work starts with <span className="gradient-text">a strong idea.</span></h2><p className="mt-4 max-w-xl text-sm leading-6 text-zinc-400">These are demonstration concepts, not client projects. Real work will replace them as the portfolio grows.</p><div className="mt-9 grid gap-4 md:grid-cols-3">{projects.map(p=><article className="card overflow-hidden" key={p.n}><div className={`relative flex h-52 items-end overflow-hidden bg-gradient-to-br ${p.tone} p-5`}><div className="absolute inset-5 rounded-2xl border border-white/10"/><div className="absolute right-8 top-7 h-24 w-24 rotate-12 rounded-3xl border border-white/20 bg-white/5 backdrop-blur-md"/><span className="relative rounded-full border border-white/15 bg-black/30 px-3 py-1 text-[10px] font-bold tracking-widest">DEMO CONCEPT</span></div><div className="p-5"><p className="eyebrow !text-[10px]">{p.type}</p><h3 className="mt-3 text-xl font-semibold">{p.title}</h3><p className="mt-2 text-sm text-zinc-400">{p.desc}</p></div></article>)}</div><div className="mt-7"><Link className="btn btn-secondary" href="/portfolio/">View portfolio <ArrowRight size={15}/></Link></div></div></section>
-<section id="about" className="section"><div className="container grid gap-10 md:grid-cols-2 md:items-center"><div><p className="eyebrow mb-4">Why NEXORA</p><h2 className="section-title">Small details. <span className="gradient-text">Stronger outcomes.</span></h2><p className="mt-5 leading-7 text-zinc-400">NEXORA CREATIVE brings creative production and digital execution into one focused studio. We keep the process clear, the work purposeful and the scope agreed before we begin.</p><Link href="/contact/" className="btn btn-primary mt-7">Tell us your idea <ArrowUpRight size={15}/></Link></div><div className="grid gap-3 sm:grid-cols-2">{benefits.map(b=><div className="card p-5" key={b.title}><b.icon className="mb-5 text-violet-300" size={23}/><h3 className="font-semibold">{b.title}</h3><p className="mt-2 text-sm leading-6 text-zinc-400">{b.desc}</p></div>)}</div></div></section>
-<section className="section border-y border-white/[.06] bg-white/[.018]"><div className="container"><p className="eyebrow mb-4">Our process</p><h2 className="section-title">Simple from <span className="gradient-text">brief to delivery.</span></h2><div className="mt-9 grid gap-4 md:grid-cols-4">{[{n:"01",t:"Discover",d:"Share the goal, audience, references and deadline."},{n:"02",t:"Scope",d:"We confirm deliverables, quote, timeline and revisions."},{n:"03",t:"Create",d:"Production starts after the scope and payment terms are agreed."},{n:"04",t:"Deliver",d:"Review the work, request agreed revisions and receive final files."}].map(x=><div className="border-t border-white/15 pt-5" key={x.n}><span className="text-sm text-violet-300">{x.n}</span><h3 className="mt-4 text-xl font-semibold">{x.t}</h3><p className="mt-2 text-sm leading-6 text-zinc-400">{x.d}</p></div>)}</div></div></section>
-<section className="section"><div className="container"><div className="card relative overflow-hidden p-7 sm:p-12"><div className="glow right-0 top-0 bg-violet-600"/><div className="relative flex flex-col justify-between gap-8 md:flex-row md:items-center"><div><p className="eyebrow mb-4">Have a project in mind?</p><h2 className="section-title max-w-2xl">Let’s make something <span className="gradient-text">worth noticing.</span></h2><p className="mt-4 text-zinc-400">Tell us what you’re building. We’ll take it from there.</p></div><Link href="/contact/" className="btn btn-primary shrink-0">Start a project <ArrowUpRight size={16}/></Link></div></div></div></section>
-</main>
+
+const benefits = [
+  {
+    icon: Sparkles,
+    title: "Thoughtful creativity",
+    desc: "Every detail has a purpose. Every project starts with your goals.",
+  },
+  {
+    icon: Layers3,
+    title: "One creative partner",
+    desc: "Editing, design and digital execution working together.",
+  },
+  {
+    icon: Zap,
+    title: "Made to move forward",
+    desc: "A clear process, practical timelines and focused delivery.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Clarity at every step",
+    desc: "Deliverables, pricing and expectations agreed before we begin.",
+  },
+];
+
+export default function Home() {
+  return (
+    <main className="nexora-home">
+      <section className="hero-premium">
+        <div className="hero-orb hero-orb-one" />
+        <div className="hero-orb hero-orb-two" />
+        <div className="hero-orb hero-orb-three" />
+
+        <div className="container relative z-10">
+          <div className="hero-content">
+            <div className="eyebrow hero-badge">
+              <span className="live-dot" />
+              Independent Digital Creative Studio
+            </div>
+
+            <h1 className="hero-title">
+              We turn bold ideas into
+              <span className="hero-title-gradient"> digital experiences.</span>
+            </h1>
+
+            <p className="hero-description">
+              From scroll-stopping videos to beautiful websites, NEXORA
+              CREATIVE helps creators and businesses bring their next big idea
+              to life.
+            </p>
+
+            <div className="hero-actions">
+              <Link href="/contact/" className="btn btn-primary">
+                Start a Project <ArrowUpRight size={17} />
+              </Link>
+              <Link href="/portfolio/" className="btn btn-secondary">
+                Explore Our Work <ArrowRight size={16} />
+              </Link>
+            </div>
+
+            <div className="hero-proof">
+              <span><CheckCircle2 size={15} /> Clear pricing</span>
+              <span><CheckCircle2 size={15} /> Personal approach</span>
+              <span><CheckCircle2 size={15} /> Creative solutions</span>
+            </div>
+          </div>
+
+          <div className="hero-showcase">
+            <div className="showcase-top">
+              <div>
+                <span className="showcase-kicker">THE NEXORA APPROACH</span>
+                <h2>Design. Build. <span>Elevate.</span></h2>
+              </div>
+              <div className="showcase-symbol">
+                <Sparkles size={25} />
+              </div>
+            </div>
+
+            <div className="showcase-visual">
+              <div className="visual-grid" />
+              <div className="visual-ring visual-ring-one" />
+              <div className="visual-ring visual-ring-two" />
+              <div className="visual-ring visual-ring-three" />
+              <div className="visual-center">
+                <span>N</span>
+                <div className="visual-center-glow" />
+              </div>
+              <div className="visual-label visual-label-left">
+                <span>01 / CREATE</span>
+                <b>Ideas into identity.</b>
+              </div>
+              <div className="visual-label visual-label-right">
+                <span>02 / DELIVER</span>
+                <b>Purpose into impact.</b>
+              </div>
+              <div className="visual-caption">CREATIVE MINDS · DIGITAL EXCELLENCE</div>
+            </div>
+
+            <div className="showcase-bottom">
+              <span>YOUR VISION, OUR CREATIVE DIRECTION.</span>
+              <span className="showcase-status"><i /> READY FOR NEW PROJECTS</span>
+            </div>
+          </div>
+
+          <div className="hero-categories">
+            <span>VIDEO & MOTION</span>
+            <i />
+            <span>WEB DEVELOPMENT</span>
+            <i />
+            <span>BRAND DESIGN</span>
+            <i />
+            <span>DIGITAL GROWTH</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="services" className="section premium-section">
+        <div className="container">
+          <div className="section-heading">
+            <div>
+              <p className="eyebrow section-eyebrow">WHAT WE DO</p>
+              <h2 className="section-title">
+                Creative services.
+                <br />
+                <span className="hero-title-gradient">Meaningful results.</span>
+              </h2>
+              <p className="section-intro">
+                Everything you need to give your ideas a stronger digital
+                presence, all in one creative studio.
+              </p>
+            </div>
+            <Link href="/services/" className="text-link">
+              Explore all services <ArrowUpRight size={17} />
+            </Link>
+          </div>
+
+          <div className="services-premium-grid">
+            {services.slice(0, 6).map((service, index) => (
+              <Link
+                href={`/services/${service.slug}/`}
+                key={service.slug}
+                className="service-premium-card"
+              >
+                <div className="service-card-top">
+                  <span className="service-index">
+                    0{index + 1} / {service.category.toUpperCase()}
+                  </span>
+                  <span className="service-arrow">
+                    <ArrowUpRight size={18} />
+                  </span>
+                </div>
+                <div className="service-icon-wrap">
+                  {index === 0 ? <Play size={23} /> :
+                   index === 1 ? <Layers3 size={23} /> :
+                   index === 2 ? <Sparkles size={23} /> :
+                   index === 3 ? <Zap size={23} /> :
+                   index === 4 ? <ShieldCheck size={23} /> :
+                   <ArrowUpRight size={23} />}
+                </div>
+                <h3>{service.name}</h3>
+                <p>{service.description}</p>
+                <div className="service-price">
+                  <span>Starting at</span>
+                  <strong>{service.price}</strong>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="work" className="section portfolio-premium">
+        <div className="container">
+          <div className="section-heading">
+            <div>
+              <p className="eyebrow section-eyebrow">SELECTED CONCEPTS</p>
+              <h2 className="section-title">
+                Ideas with
+                <span className="hero-title-gradient"> a point of view.</span>
+              </h2>
+              <p className="section-intro">
+                A glimpse into the creative direction behind NEXORA. These are
+                demonstration concepts, not completed client projects.
+              </p>
+            </div>
+            <Link href="/portfolio/" className="text-link">
+              View portfolio <ArrowUpRight size={17} />
+            </Link>
+          </div>
+
+          <div className="projects-premium-grid">
+            {projects.map((project) => (
+              <article className="project-premium-card" key={project.n}>
+                <div className={`project-art ${project.tone}`}>
+                  <div className="project-art-frame" />
+                  <div className="project-art-orb" />
+                  <div className="project-art-lines" />
+                  <span className="project-number">{project.n}</span>
+                  <span className="project-demo">CREATIVE CONCEPT</span>
+                  <span className="project-art-caption">NEXORA®</span>
+                </div>
+                <div className="project-info">
+                  <p className="eyebrow">{project.type}</p>
+                  <h3>{project.title}</h3>
+                  <p>{project.desc}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="about" className="section premium-section">
+        <div className="container about-premium-grid">
+          <div className="about-premium-copy">
+            <p className="eyebrow section-eyebrow">THE STUDIO</p>
+            <h2 className="section-title">
+              Small studio.
+              <br />
+              <span className="hero-title-gradient">Big-picture thinking.</span>
+            </h2>
+            <p className="section-intro">
+              NEXORA CREATIVE brings design, content and digital execution
+              together with one goal: helping your brand show up with clarity
+              and confidence.
+            </p>
+            <Link href="/contact/" className="btn btn-primary about-cta">
+              Let’s Talk About Your Project <ArrowRight size={16} />
+            </Link>
+          </div>
+
+          <div className="benefits-premium-grid">
+            {benefits.map((benefit, index) => (
+              <div className="benefit-premium-card" key={benefit.title}>
+                <div className="benefit-topline">
+                  <benefit.icon size={22} />
+                  <span>0{index + 1}</span>
+                </div>
+                <h3>{benefit.title}</h3>
+                <p>{benefit.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section process-premium">
+        <div className="container">
+          <p className="eyebrow section-eyebrow">A CLEAR PROCESS</p>
+          <h2 className="section-title">
+            From first idea to
+            <span className="hero-title-gradient"> final delivery.</span>
+          </h2>
+
+          <div className="process-premium-grid">
+            {[
+              { n: "01", title: "Discover", desc: "Tell us about your idea, goals, audience and timeline." },
+              { n: "02", title: "Define", desc: "Agree on the deliverables, budget, schedule and revisions." },
+              { n: "03", title: "Create", desc: "We bring the plan to life with focused creative execution." },
+              { n: "04", title: "Deliver", desc: "Review the result and receive the agreed final files." },
+            ].map((step) => (
+              <div className="process-premium-item" key={step.n}>
+                <span className="process-number">{step.n}</span>
+                <div className="process-line" />
+                <h3>{step.title}</h3>
+                <p>{step.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section final-cta-section">
+        <div className="container">
+          <div className="final-cta-card">
+            <div className="final-cta-glow" />
+            <div className="final-cta-content">
+              <p className="eyebrow">YOUR NEXT MOVE STARTS HERE</p>
+              <h2>
+                Have an idea?
+                <br />
+                <span className="hero-title-gradient">Let’s make it real.</span>
+              </h2>
+              <p>
+                Tell us what you’re building. We’ll help you find the right
+                creative direction.
+              </p>
+              <Link href="/contact/" className="btn btn-primary">
+                Start Your Project <ArrowUpRight size={17} />
+              </Link>
+            </div>
+            <div className="cta-decoration">
+              <span>N</span>
+              <div />
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  );
 }

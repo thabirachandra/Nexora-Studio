@@ -22,3 +22,88 @@ button,input,textarea,select { font:inherit; }
 .input { width:100%; border:1px solid var(--line); background:#0c0e14; border-radius:12px; padding:12px 14px; outline:none; color:#fff; }
 .input:focus { border-color:#7771ff; box-shadow:0 0 0 3px #7771ff20; }
 @media (max-width:640px) { .container{width:calc(100% - 28px)} .section{padding:65px 0} }
+
+/* NEXORA CREATIVE — LIVE ANIMATED BACKGROUND */
+
+body {
+  background-color: #070710;
+  background-image:
+    radial-gradient(ellipse at 15% 15%, rgba(103, 52, 255, 0.13), transparent 40%),
+    radial-gradient(ellipse at 85% 30%, rgba(0, 170, 255, 0.10), transparent 38%),
+    radial-gradient(ellipse at 50% 85%, rgba(125, 40, 220, 0.09), transparent 42%);
+  background-attachment: fixed;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: -50%;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at 30% 40%, rgba(109, 40, 217, 0.15), transparent 35%),
+    radial-gradient(ellipse at 70% 55%, rgba(14, 165, 233, 0.12), transparent 35%);
+  filter: blur(55px);
+  animation: nexora-live-glow 18s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.16;
+  background-image: radial-gradient(rgba(255,255,255,.55) 0.7px, transparent 0.7px);
+  background-size: 34px 34px;
+  animation: nexora-stars 30s linear infinite;
+  -webkit-mask-image: linear-gradient(to bottom, black, transparent 90%);
+  mask-image: linear-gradient(to bottom, black, transparent 90%);
+}
+
+.glow {
+  animation: nexora-pulse 7s ease-in-out infinite alternate;
+}
+
+@keyframes nexora-live-glow {
+  0% {
+    transform: translate3d(-3%, -2%, 0) rotate(0deg) scale(1);
+  }
+  50% {
+    transform: translate3d(3%, 2%, 0) rotate(8deg) scale(1.08);
+  }
+  100% {
+    transform: translate3d(-1%, 4%, 0) rotate(-5deg) scale(1.03);
+  }
+}
+
+@keyframes nexora-stars {
+  from { background-position: 0 0; }
+  to { background-position: 170px 100px; }
+}
+
+@keyframes nexora-pulse {
+  from { opacity: 0.14; transform: scale(0.96); }
+  to { opacity: 0.30; transform: scale(1.06); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body::before,
+  body::after,
+  .glow {
+    animation: none;
+  }
+}
+
+@media (max-width: 640px) {
+  body::before {
+    filter: blur(38px);
+  }
+
+  body::after {
+    opacity: 0.10;
+    background-size: 42px 42px;
+  }
+}
+

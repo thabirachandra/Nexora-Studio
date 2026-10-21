@@ -15,23 +15,42 @@ const projects = [
   {
     n: "01",
     type: "VIDEO & MOTION",
-    title: "Motion that tells a story.",
-    desc: "Cinematic edits and short-form content designed to capture attention.",
+    title: "Stories that stop the scroll.",
+    desc: "Cinematic video edits, Instagram Reels, YouTube Shorts and motion-led storytelling.",
     tone: "project-violet",
+    tags: ["VIDEO EDITING", "MOTION", "SHORT-FORM"],
+    visual: "project-visual-video",
+    mark: "PLAY",
   },
   {
     n: "02",
-    type: "WEB EXPERIENCES",
-    title: "Digital, reimagined.",
-    desc: "Modern, responsive website concepts built around your brand.",
+    type: "WEB DEVELOPMENT",
+    title: "Digital experiences, elevated.",
+    desc: "Modern, responsive website concepts designed to give brands a stronger online presence.",
     tone: "project-blue",
+    tags: ["WEB DESIGN", "DEVELOPMENT", "UI / UX"],
+    visual: "project-visual-web",
+    mark: "NEXORA.DEV",
   },
   {
     n: "03",
-    type: "BRAND DESIGN",
-    title: "Make your mark.",
-    desc: "Distinctive visual identities for ambitious creators and businesses.",
+    type: "BRANDING & DESIGN",
+    title: "A brand worth remembering.",
+    desc: "Distinctive logo concepts, visual identities and graphic design with a clear point of view.",
     tone: "project-pink",
+    tags: ["IDENTITY", "GRAPHICS", "DIRECTION"],
+    visual: "project-visual-brand",
+    mark: "N®",
+  },
+  {
+    n: "04",
+    type: "SOCIAL MEDIA",
+    title: "Built for the next scroll.",
+    desc: "Social-first creative concepts, campaign visuals and content designed for digital audiences.",
+    tone: "project-teal",
+    tags: ["SOCIAL", "CAMPAIGNS", "CONTENT"],
+    visual: "project-visual-social",
+    mark: "@NEXORA",
   },
 ];
 
@@ -239,11 +258,19 @@ export default function Home() {
               <article className="project-premium-card" key={project.n}>
                 <div className={`project-art ${project.tone}`}>
                   <div className="project-art-frame" />
-                  <div className="project-art-orb" />
+                  <div className={`project-art-orb ${project.visual}`} />
                   <div className="project-art-lines" />
                   <span className="project-number">{project.n}</span>
-                  <span className="project-demo">CREATIVE CONCEPT</span>
-                  <span className="project-art-caption">NEXORA®</span>
+                  <span className="project-demo">CONCEPT / 2026</span>
+                  <span className="project-art-caption">{project.mark}</span>
+                  <div className="project-visual-title">
+                    <span>NEXORA CREATIVE</span>
+                    <strong>{project.type}</strong>
+                  </div>
+                  <div className="project-tags">
+                    {project.tags.map((tag) => <span key={tag}>{tag}</span>)}
+                  </div>
+                  <span className="project-open" aria-hidden="true">↗</span>
                 </div>
                 <div className="project-info">
                   <p className="eyebrow">{project.type}</p>

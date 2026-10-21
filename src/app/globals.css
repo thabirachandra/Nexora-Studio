@@ -1119,3 +1119,67 @@ button:focus-visible {
     transform: none;
   }
 }
+
+
+/* NEXORA — CINEMATIC GALAXY VIDEO BACKGROUND */
+.hero-premium {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: #05060c;
+}
+
+.hero-video-background {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0.68;
+  pointer-events: none;
+}
+
+.hero-premium::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, rgba(4,5,12,.45), rgba(4,5,12,.68) 65%, #070810),
+    linear-gradient(90deg, rgba(4,5,12,.32), transparent 50%, rgba(4,5,12,.32));
+}
+
+.hero-premium > .hero-orb {
+  z-index: 2;
+  pointer-events: none;
+}
+
+.hero-premium > .container {
+  position: relative;
+  z-index: 3;
+}
+
+@media (max-width: 600px) {
+  .hero-video-background {
+    opacity: 0.52;
+  }
+
+  .hero-premium::before {
+    background: linear-gradient(
+      180deg,
+      rgba(4,5,12,.48),
+      rgba(4,5,12,.72) 70%,
+      #070810
+    );
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-video-background {
+    display: none;
+  }
+}

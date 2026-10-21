@@ -62,6 +62,17 @@ export default function Home() {
   return (
     <main className="nexora-home">
       <section className="hero-premium">
+        <video
+          className="hero-video-background"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          aria-hidden="true"
+        >
+          <source src="/Nexora-Studio/videos/galaxy.mp4" type="video/mp4" />
+        </video>
         <div className="hero-orb hero-orb-one" />
         <div className="hero-orb hero-orb-two" />
         <div className="hero-orb hero-orb-three" />

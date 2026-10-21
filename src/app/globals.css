@@ -990,3 +990,132 @@ body::after {
     transition: none !important;
   }
 }
+
+/* =========================================
+   NEXORA PREMIUM MOTION UPGRADE
+   ========================================= */
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Refined premium button motion */
+.btn {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  transition:
+    transform .3s cubic-bezier(.2,.8,.2,1),
+    box-shadow .3s ease,
+    border-color .3s ease,
+    background-color .3s ease,
+    opacity .3s ease;
+}
+
+.btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    110deg,
+    transparent 20%,
+    rgba(255,255,255,.16) 48%,
+    transparent 76%
+  );
+  transform: translateX(-130%);
+  transition: transform .65s ease;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.btn:hover::before {
+  transform: translateX(130%);
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+}
+
+.btn:active {
+  transform: translateY(0) scale(.98);
+}
+
+/* Service cards: smoother lift and glow */
+.service-premium-card,
+.project-premium-card,
+.benefit-premium-card {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  transition:
+    transform .4s cubic-bezier(.2,.8,.2,1),
+    border-color .4s ease,
+    box-shadow .4s ease,
+    background-color .4s ease;
+}
+
+.service-premium-card:hover,
+.project-premium-card:hover,
+.benefit-premium-card:hover {
+  transform: translateY(-7px);
+  border-color: rgba(133,154,255,.42);
+  box-shadow:
+    0 18px 55px rgba(0,0,0,.2),
+    0 0 32px rgba(103,105,255,.08);
+}
+
+/* Premium visual depth */
+.hero-showcase {
+  transform: translateZ(0);
+  transition: transform .6s cubic-bezier(.2,.8,.2,1);
+}
+
+.hero-showcase:hover {
+  transform: translateY(-4px);
+}
+
+.hero-orb {
+  will-change: transform;
+}
+
+.visual-ring {
+  transform-origin: center;
+  will-change: transform;
+}
+
+/* Keyboard accessibility */
+.btn:focus-visible,
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid #a8a5ff;
+  outline-offset: 5px;
+}
+
+/* Respect the visitor's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: .01ms !important;
+  }
+
+  .service-premium-card:hover,
+  .project-premium-card:hover,
+  .benefit-premium-card:hover,
+  .hero-showcase:hover,
+  .btn:hover {
+    transform: none;
+  }
+}
